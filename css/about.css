@@ -1,0 +1,39 @@
+/* Vahweh Design — About page (loads after css/home.css; reuses its intro frame, "why" block, category cards and buttons) */
+
+.main-nav a[aria-current="page"]::after { transform: scaleX(1); }
+.drawer__nav a[aria-current="page"] { color: var(--antique); }
+
+/* Hero: text left, framed photo right (the shared frame is mirrored) */
+.about-hero { padding-top: clamp(2.5rem, 6vw, 4.5rem); }
+.about-hero .intro__frame { padding: 0 18px 18px 0; }
+.about-hero .intro__frame::before { inset: 18px 0 0 18px; }
+.about-hero .body-lg { margin-bottom: 1.8rem; }
+
+/* Story */
+.about-story .orn { margin: 1.3rem 0; }
+.about-story p { max-width: 32rem; margin: 0 0 1rem; line-height: 1.9; }
+.about-story .about-story__lead { font-family: var(--serif); font-size: clamp(1.35rem, 2.4vw, 1.65rem); line-height: 1.4; color: var(--espresso); }
+
+/* Philosophy: three short columns, left aligned text stays centred like the homepage block */
+.about-page .why p { max-width: 19rem; }
+
+/* Collections glimpse */
+.about-cats .cat { aspect-ratio: 4 / 5; }
+
+/* Contact */
+.about-contact__box { max-width: 720px; margin: 0 auto; text-align: center; }
+.about-contact__box .orn { justify-content: center; }
+.about-contact__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem; margin-top: 2rem; }
+.about-contact__actions .btn-vd { padding: 1.05rem 1.9rem; }
+.about-contact__actions .i { font-size: 1.05rem; }
+
+@media (max-width: 991.98px) {
+  .about-story .col-lg-6 { text-align: left; }
+  .about-story .orn { justify-content: flex-start; }
+}
+@media (max-width: 575.98px) {
+  .about-cats { grid-template-columns: 1fr; }
+  .about-cats .cat { aspect-ratio: 4 / 3; }
+  .about-contact__actions { flex-direction: column; }
+  .about-contact__actions .btn-vd { width: 100%; }
+}

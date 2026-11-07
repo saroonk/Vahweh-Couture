@@ -1,0 +1,69 @@
+/* Vahweh Design — Contact page (loads after css/home.css; tokens, buttons, section/heading styles are shared) */
+
+.main-nav a[aria-current="page"]::after { transform: scaleX(1); }
+.drawer__nav a[aria-current="page"] { color: var(--antique); }
+
+/* Heading */
+.ct-head { background: var(--pearl); border-bottom: 1px solid var(--line); text-align: center; padding: clamp(1.6rem, 4vw, 3rem) 0 clamp(2rem, 4.5vw, 3.2rem); }
+.ct-crumbs { display: flex; justify-content: center; flex-wrap: wrap; gap: .3rem .5rem; margin: 0 0 clamp(1.2rem, 3vw, 2rem); padding: 0; list-style: none; font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; }
+.ct-crumbs li + li::before { content: "/"; margin-right: .5rem; color: var(--antique); }
+.ct-crumbs a { color: var(--antique); transition: color .3s; }
+.ct-crumbs a:hover { color: var(--espresso); }
+.ct-crumbs [aria-current] { color: var(--espresso); }
+.ct-head .orn { justify-content: center; margin: 1.1rem 0 0; }
+.ct-head .sub { max-width: 36rem; }
+
+.ct-main { padding-top: clamp(2rem, 5vw, 4rem); }
+.ct-title { margin: 0 0 1.4rem; font-family: var(--serif); font-weight: 500; font-size: clamp(1.7rem, 3vw, 2.2rem); color: var(--espresso); }
+
+/* Form */
+.ct-field label { display: block; margin-bottom: .45rem; font-size: .68rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; }
+.req { color: var(--antique); }
+.opt { text-transform: none; letter-spacing: .04em; opacity: .7; }
+.ct-field input, .ct-field textarea {
+  display: block; width: 100%; padding: .9rem 1rem; background: var(--pearl); color: var(--espresso);
+  border: 1px solid var(--line); border-radius: 0; font: 400 .92rem var(--sans); transition: border-color .3s, background-color .3s;
+}
+.ct-field textarea { resize: vertical; min-height: 9rem; line-height: 1.7; }
+.ct-field input:hover, .ct-field textarea:hover { border-color: rgba(183, 122, 22, .6); }
+.ct-field input:focus, .ct-field textarea:focus { outline: 0; border-color: var(--antique); background: #fff; }
+.ct-field input:focus-visible, .ct-field textarea:focus-visible { outline: 2px solid var(--antique); outline-offset: 2px; }
+.ct-field [aria-invalid="true"] { border-color: #9b2c14; }
+.ct-err { margin: .4rem 0 0; font-size: .78rem; color: #9b2c14; }
+.ct-err[hidden] { display: none; }
+.ct-submit { margin-top: 1.6rem; min-width: 13rem; }
+.ct-submit:disabled { opacity: .6; cursor: progress; transform: none; }
+.ct-hint { margin: .9rem 0 0; font-size: .74rem; opacity: .75; }
+
+/* Form status (info / success / error) */
+.ct-notice { margin: 0 0 1.3rem; padding: 1rem 1.1rem; border: 1px solid var(--antique); background: var(--pearl); font-size: .86rem; line-height: 1.7; }
+.ct-notice[hidden] { display: none; }
+.ct-notice p { margin: 0; }
+.ct-notice .btn-vd { margin-top: .9rem; }
+.ct-notice.is-error { border-color: #9b2c14; color: #7a2410; }
+.ct-notice.is-success { border-color: var(--champagne); background: #fff; }
+
+/* Contact details */
+.ct-info { padding: clamp(1.4rem, 3vw, 2rem); background: var(--pearl); border: 1px solid var(--line); }
+.ct-list { display: grid; gap: 1.15rem; margin: 0; padding: 0; list-style: none; }
+.ct-list li { display: flex; align-items: flex-start; gap: .95rem; }
+.ct-ico { flex: none; display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--champagne); border-radius: 50%; color: var(--antique); font-size: .95rem; }
+.ct-list h3 { margin: 0 0 .15rem; font-family: var(--sans); font-size: .66rem; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--antique); }
+.ct-list p { margin: 0; font-size: .9rem; }
+.ct-ph { opacity: .75; font-style: italic; }
+.ct-link { display: inline-block; margin-top: .2rem; font-size: .86rem; color: var(--espresso); border-bottom: 1px solid var(--champagne); transition: color .3s, border-color .3s; }
+.ct-link:hover { color: var(--antique); border-color: var(--antique); }
+
+/* Location + follow */
+.ct-address { text-align: center; margin: 0; font-style: normal; font-size: 1rem; }
+.ct-follow { text-align: center; }
+.ct-follow .sub { margin-bottom: 1.6rem; }
+.ct-follow__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem; }
+.ct-follow__actions .btn-vd { padding: 1.05rem 1.9rem; }
+.ct-follow__actions .i { font-size: 1.05rem; }
+
+@media (max-width: 575.98px) {
+  .ct-submit { width: 100%; }
+  .ct-follow__actions { flex-direction: column; }
+  .ct-follow__actions .btn-vd { width: 100%; }
+}
