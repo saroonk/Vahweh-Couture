@@ -23,8 +23,12 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- 1. Announcement bar -->
-  <div class="announce" role="note">
-    <p>Discover Timeless Elegance <span aria-hidden="true">|</span> Explore the Latest Collection</p>
+  <div class="announce" role="note" aria-label="Announcements">
+    <div class="announce__track">
+      <!-- One <p> per message; add or edit messages here (keep each short, single line) -->
+      <p>Discover Timeless Elegance</p>
+      <p>Explore the Latest Collection</p>
+    </div>
   </div>
 
   <!-- 2. Header -->
@@ -128,6 +132,35 @@
       </div>
     </section>
 
+    <!-- 5. Shop by category -->
+    <section class="section section--pearl" id="collections">
+      <div class="container-xl">
+        <header class="section-head reveal">
+          <p class="label">Collections</p>
+          <h2 class="display">Explore Our Collections</h2>
+          <div class="orn" aria-hidden="true"><span></span><i></i><span></span></div>
+          <p class="sub">Find the styles that feel uniquely yours.</p>
+        </header>
+        <!-- Update each href when collection pages exist -->
+        <div class="cat-grid" id="catGrid">
+          <a class="cat reveal" href="products.html?category=Designer%20Dresses"><figure class="ph tone-2 has-img"><img src="assets/images/cat-1.webp" alt="" width="720" height="900" loading="lazy" decoding="async"></figure><span class="cat__title"><small>01</small>Designer Dresses</span></a>
+          <a class="cat reveal" style="--d:.08s" href="products.html?category=Ethnic%20Wear"><figure class="ph tone-4 has-img"><img src="assets/images/cat-2.webp" alt="" width="720" height="900" loading="lazy" decoding="async"></figure><span class="cat__title"><small>02</small>Ethnic Wear</span></a>
+          <a class="cat reveal" style="--d:.16s" href="products.html?category=Party%20Wear"><figure class="ph tone-5 has-img"><img src="assets/images/cat-3.webp" alt="" width="720" height="900" loading="lazy" decoding="async"></figure><span class="cat__title"><small>03</small>Party Wear</span></a>
+          <a class="cat reveal" href="products.html?category=Contemporary"><figure class="ph tone-1 has-img"><img src="assets/images/cat-4.webp" alt="" width="720" height="900" loading="lazy" decoding="async"></figure><span class="cat__title"><small>04</small>Contemporary Collection</span></a>
+          <a class="cat reveal" style="--d:.08s" href="products.html?category=Casual%20Elegance"><figure class="ph tone-6 has-img"><img src="assets/images/cat-5.webp" alt="" width="720" height="900" loading="lazy" decoding="async"></figure><span class="cat__title"><small>05</small>Casual Elegance</span></a>
+          <a class="cat reveal" style="--d:.16s" href="products.html?sort=newest"><figure class="ph tone-2 has-img"><img src="assets/images/cat-6.webp" alt="" width="720" height="900" loading="lazy" decoding="async"></figure><span class="cat__title"><small>06</small>New Arrivals</span></a>
+          <!-- Cards 7+ are hidden by js/home.js until "Show More" is clicked. Links use the site search because these have no category filter yet. -->
+          <a class="cat reveal" href="search-results.html?q=Saree"><figure class="ph tone-4 has-img"><img src="assets/images/p-m01.webp" alt="" width="600" height="800" loading="lazy" decoding="async"></figure><span class="cat__title"><small>07</small>Sarees</span></a>
+          <a class="cat reveal" style="--d:.08s" href="search-results.html?q=Lehenga"><figure class="ph tone-5 has-img"><img src="assets/images/p-m04.webp" alt="" width="600" height="800" loading="lazy" decoding="async"></figure><span class="cat__title"><small>08</small>Lehengas</span></a>
+          <a class="cat reveal" style="--d:.16s" href="search-results.html?q=Kurta"><figure class="ph tone-1 has-img"><img src="assets/images/p-b04.webp" alt="" width="600" height="800" loading="lazy" decoding="async"></figure><span class="cat__title"><small>09</small>Kurta Sets</span></a>
+          <a class="cat reveal" href="search-results.html?q=Gown"><figure class="ph tone-6 has-img"><img src="assets/images/p-b01.webp" alt="" width="600" height="800" loading="lazy" decoding="async"></figure><span class="cat__title"><small>10</small>Evening Gowns</span></a>
+          <a class="cat reveal" style="--d:.08s" href="search-results.html?q=Co-ord"><figure class="ph tone-2 has-img"><img src="assets/images/p-b03.webp" alt="" width="600" height="800" loading="lazy" decoding="async"></figure><span class="cat__title"><small>11</small>Co-ord Sets</span></a>
+        </div>
+        <!-- Shown by js/home.js only when there are more than 6 cards -->
+        <div class="cat-more" hidden><button class="btn-vd btn-vd--line" type="button" data-cat-more aria-controls="catGrid" aria-expanded="false">Show More</button></div>
+      </div>
+    </section>
+
     <!-- 4. Brand introduction -->
     <section class="section intro" id="about">
       <div class="container-xl">
@@ -144,27 +177,6 @@
             <p class="body-lg">At Vahweh Design, every piece tells a story of elegance, individuality and refined beauty. Discover a carefully curated world of fashion where contemporary style meets timeless charm.</p>
             <a class="btn-vd btn-vd--line" href="about.html">Discover Our Story</a>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. Shop by category -->
-    <section class="section section--pearl" id="collections">
-      <div class="container-xl">
-        <header class="section-head reveal">
-          <p class="label">Collections</p>
-          <h2 class="display">Explore Our Collections</h2>
-          <div class="orn" aria-hidden="true"><span></span><i></i><span></span></div>
-          <p class="sub">Find the styles that feel uniquely yours.</p>
-        </header>
-        <!-- Update each href when collection pages exist -->
-        <div class="cat-grid">
-          <a class="cat reveal" href="products.html?category=Designer%20Dresses"><figure class="ph tone-2 has-img"><img src="assets/images/cat-1.webp" alt="" width="720" height="900" loading="lazy" decoding="async"></figure><span class="cat__title"><small>01</small>Designer Dresses</span></a>
-          <a class="cat reveal" style="--d:.08s" href="products.html?category=Ethnic%20Wear"><figure class="ph tone-4 has-img"><img src="assets/images/cat-2.webp" alt="" width="720" height="900" loading="lazy" decoding="async"></figure><span class="cat__title"><small>02</small>Ethnic Wear</span></a>
-          <a class="cat reveal" style="--d:.16s" href="products.html?category=Party%20Wear"><figure class="ph tone-5 has-img"><img src="assets/images/cat-3.webp" alt="" width="720" height="900" loading="lazy" decoding="async"></figure><span class="cat__title"><small>03</small>Party Wear</span></a>
-          <a class="cat reveal" href="products.html?category=Contemporary"><figure class="ph tone-1 has-img"><img src="assets/images/cat-4.webp" alt="" width="720" height="900" loading="lazy" decoding="async"></figure><span class="cat__title"><small>04</small>Contemporary Collection</span></a>
-          <a class="cat reveal" style="--d:.08s" href="products.html?category=Casual%20Elegance"><figure class="ph tone-6 has-img"><img src="assets/images/cat-5.webp" alt="" width="720" height="900" loading="lazy" decoding="async"></figure><span class="cat__title"><small>05</small>Casual Elegance</span></a>
-          <a class="cat reveal" style="--d:.16s" href="products.html?sort=newest"><figure class="ph tone-2 has-img"><img src="assets/images/cat-6.webp" alt="" width="720" height="900" loading="lazy" decoding="async"></figure><span class="cat__title"><small>06</small>New Arrivals</span></a>
         </div>
       </div>
     </section>

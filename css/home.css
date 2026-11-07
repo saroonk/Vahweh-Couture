@@ -119,8 +119,16 @@ ul { list-style: none; margin: 0; padding: 0; }
 .js .reveal.in { opacity: 1; transform: none; }
 
 /* ---------- Announcement ---------- */
-.announce { background: var(--espresso); color: var(--champagne); text-align: center; padding: .55rem 1rem; }
-.announce p { margin: 0; font-size: .64rem; letter-spacing: .26em; text-transform: uppercase; line-height: 1.5; }
+.announce { overflow: hidden; background: var(--espresso); color: var(--champagne); text-align: center; padding: .55rem 0; }
+.announce p { margin: 0; font-size: .64rem; letter-spacing: .26em; text-transform: uppercase; line-height: 1.5; white-space: nowrap; }
+/* Continuous marquee: JS appends one aria-hidden copy of .announce__group, and the track slides left by exactly one group (-50%) for a seamless loop */
+.announce__track { display: flex; width: max-content; }
+.announce__group { display: flex; flex: 0 0 auto; min-width: 100vw; justify-content: space-around; }
+.announce__group p::after { content: "\25C6"; margin-left: 3rem; font-size: .6em; opacity: .6; }
+.announce__track.is-moving { animation: announce-marquee 50s linear infinite; }
+.announce:hover .announce__track { animation-play-state: paused; }
+@keyframes announce-marquee { to { transform: translateX(-50%); } }
+.announce__btn { display: none; }   /* legacy carousel buttons (still present in about.html) stay hidden */
 .announce span { margin: 0 .6rem; opacity: .6; }
 
 /* ---------- Header ---------- */
@@ -273,12 +281,24 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 .slide__copy p:not(.label) { font-size: clamp(.92rem, 1.6vw, 1.05rem); line-height: 1.85; margin: 0 0 2rem; max-width: 30rem; color: #F7EED8; }
 
+/* Hero CTA: refined outlined button (hover shifts colour only, so the entrance animation is unaffected) */
+.slide__copy .btn-vd {
+  padding: 1.05rem 2.4rem; font-size: .68rem; letter-spacing: .3em;
+  background: var(--champagne); color: var(--espresso); border: 1px solid var(--champagne); gap: .8rem;
+}
+.slide__copy .btn-vd::after {
+  content: "\2192" / ""; font-size: 1.15em; line-height: 1; transition: transform .35s var(--ease);
+}
+.slide__copy .btn-vd:hover, .slide__copy .btn-vd:focus-visible { background: var(--antique); border-color: var(--antique); color: var(--pearl); transform: none; }
+.slide__copy .btn-vd:hover::after, .slide__copy .btn-vd:focus-visible::after { transform: translateX(4px); }
+
 .hero__arrow {
   position: absolute; top: 50%; z-index: 5; width: 50px; height: 50px; margin-top: -25px; display: none;
-  place-items: center; border: 1px solid rgba(212, 161, 59, .6); background: rgba(48, 22, 0, .25); color: var(--pearl);
-  cursor: pointer; transition: background .35s, color .35s, border-color .35s;
+  place-items: center; border: 0; border-radius: 50%; background: rgba(48, 22, 0, .38); color: var(--pearl);
+  cursor: pointer; transition: background-color .4s var(--ease), color .4s var(--ease);
 }
-.hero__arrow:hover { background: var(--champagne); color: var(--espresso); border-color: var(--champagne); }
+.hero__arrow:hover { background: rgba(247, 238, 216, .92); color: var(--espresso); }
+.hero__arrow:focus-visible { outline: 2px solid var(--champagne); outline-offset: 3px; }
 .hero__arrow--prev { left: clamp(14px, 2.5vw, 36px); }
 .hero__arrow--next { right: clamp(14px, 2.5vw, 36px); }
 .hero__dots { position: absolute; z-index: 5; left: 0; right: 0; bottom: 1.6rem; display: flex; justify-content: center; gap: .65rem; }
@@ -307,7 +327,13 @@ ul { list-style: none; margin: 0; padding: 0; }
 .intro__frame { position: relative; padding: 0 0 18px 18px; }
 .intro__frame::before { content: ""; position: absolute; inset: 18px 18px 0 0; border: 1px solid var(--antique); opacity: .6; }
 .intro__frame .ph { position: relative; z-index: 1; }
+/* Homepage intro only (#about); the About page reuses .intro__frame with its own sizing */
+#about.intro { padding: clamp(2.5rem, 5vw, 4.5rem) 0; }
+#about .intro__frame .ph.ratio-45 { aspect-ratio: 1 / 1; }
+#about .intro__frame .ph > img { object-position: center 30%; }
+@media (max-width: 991.98px) { #about .intro__frame .ph.ratio-45 { aspect-ratio: 4 / 3; } }
 .intro .orn { margin: 1.3rem 0; }
+.intro + #new-arrivals { padding-top: clamp(1rem, 3vw, 2.5rem); }
 @media (max-width: 991.98px) { .intro .col-lg-5 { text-align: center; } .intro .orn { justify-content: center; } .intro .body-lg { margin-left: auto; margin-right: auto; } }
 
 /* Categories */
@@ -326,6 +352,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 .cat__title small { display: block; font-family: var(--sans); font-size: .62rem; letter-spacing: .3em; color: var(--champagne); margin-bottom: .45rem; }
 .cat__title::after { content: ""; display: block; width: 28px; height: 1px; background: var(--champagne); margin-top: .8rem; transition: width .6s var(--ease); }
 .cat:hover .cat__title::after { width: 72px; }
+.cat-more { margin-top: clamp(2rem, 4vw, 3rem); text-align: center; }
+.cat[hidden] { display: none; }
 
 /* ---------- Product cards ---------- */
 .card-p { position: relative; isolation: isolate; height: 100%; display: flex; flex-direction: column; background: var(--pearl); border: 1px solid rgba(183, 122, 22, .18); transition: border-color .4s, transform .5s var(--ease); }

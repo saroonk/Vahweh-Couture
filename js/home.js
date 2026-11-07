@@ -354,6 +354,43 @@
     });
   })();
 
+  /* ---------- Announcement bar: continuous CSS marquee. JS only wraps the messages in a group and appends one
+     aria-hidden copy so the loop is seamless (the animation itself and the hover pause live in CSS). ---------- */
+  (function announce() {
+    const track = $(".announce__track");
+    if (!track) return;
+    let group = $(".announce__group", track);
+    if (!group) {
+      group = document.createElement("div");
+      group.className = "announce__group";
+      while (track.firstChild) group.appendChild(track.firstChild);
+      track.appendChild(group);
+    }
+    if (reduceMotion) return;   // static first group only
+    const copy = group.cloneNode(true);
+    copy.setAttribute("aria-hidden", "true");
+    track.appendChild(copy);
+    track.classList.add("is-moving");
+  })();
+
+  /* ---------- Collections "Show More / Show Less": cards 7+ already exist in the HTML; JS only toggles their visibility ---------- */
+  (function catMore() {
+    const grid = $("#catGrid"), more = $(".cat-more");
+    if (!grid || !more) return;
+    const FIRST = 6, extra = $$(".cat", grid).slice(FIRST);
+    if (!extra.length) return;
+    const btn = $("[data-cat-more]", more);
+    let open = false;
+    extra.forEach(c => { c.hidden = true; });
+    more.hidden = false;
+    btn.addEventListener("click", () => {
+      open = !open;
+      extra.forEach(c => { c.hidden = !open; });   // .reveal fades the cards in as they become visible
+      btn.textContent = open ? "Show Less" : "Show More";
+      btn.setAttribute("aria-expanded", String(open));
+    });
+  })();
+
   /* ---------- Scroll reveal ---------- */
   let revealIO = null;
   function initReveal() {

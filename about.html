@@ -24,8 +24,14 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- 1. Announcement bar -->
-  <div class="announce" role="note">
-    <p>Discover Timeless Elegance <span aria-hidden="true">|</span> Explore the Latest Collection</p>
+  <div class="announce" role="note" aria-label="Announcements">
+    <button class="announce__btn announce__btn--prev" type="button" aria-label="Previous message"><svg class="i" aria-hidden="true"><use href="#i-prev"/></svg></button>
+    <div class="announce__track">
+      <!-- One <p> per message; add or edit messages here (keep each short, single line) -->
+      <p>Discover Timeless Elegance</p>
+      <p>Explore the Latest Collection</p>
+    </div>
+    <button class="announce__btn announce__btn--next" type="button" aria-label="Next message"><svg class="i" aria-hidden="true"><use href="#i-next"/></svg></button>
   </div>
 
   <!-- 2. Header -->
