@@ -386,6 +386,15 @@ ul { list-style: none; margin: 0; padding: 0; }
   .btn-vd--sm { font-size: .56rem; letter-spacing: .1em; padding: .75rem .3rem; }
   .btn-vd--sm .i { font-size: .85rem; }
 }
+/* Very narrow phones: keep "Buy via WhatsApp" (product cards only) on one centred line */
+@media (max-width: 391.98px) {
+  .card-p__actions .btn-vd--wa-line { gap: .3rem; padding: .8rem .2rem; font-size: .5rem; letter-spacing: .03em; white-space: nowrap; }
+  .card-p__actions .btn-vd--wa-line .i { font-size: .75rem; }
+}
+@media (max-width: 339.98px) {
+  .card-p__actions .btn-vd--wa-line { gap: .25rem; font-size: .44rem; }
+  .card-p__actions .btn-vd--wa-line .i { font-size: .7rem; }
+}
 
 /* ---------- Banner ---------- */
 .banner { position: relative; min-height: clamp(420px, 70vh, 640px); display: flex; align-items: center; background: var(--espresso); overflow: hidden; }
