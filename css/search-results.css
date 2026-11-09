@@ -21,6 +21,8 @@
 }
 .sr-form input:focus { outline: 0; border-color: var(--antique); }
 @media (max-width: 575.98px) { .sr-form { flex-direction: column; } }
+/* Sort menu (search results only): the control sits at the left edge on phones, so open the menu from its left edge instead of its right (right-anchoring pushed it off-screen) */
+@media (max-width: 575.98px) { #srBar .dd__menu { left: 0; right: auto; } }
 
 /* Body */
 .sr { padding-top: clamp(1.8rem, 4vw, 3rem); }
